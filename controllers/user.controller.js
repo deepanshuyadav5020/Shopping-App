@@ -23,10 +23,12 @@ const loginUser = async (req, res) => {
 //access: public
 const registerUser = async (req, res) => {
   const { name, email, password, isAdmin, phone } = req.body;
+  console.log(name)
   const userExists = await User.findOne({ email });
 
   if (userExists) {
     res.status(400).json({ err: "User already exists" });
+    return ;
   }
 
   const user = await User.create({
