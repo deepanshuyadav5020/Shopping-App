@@ -16,7 +16,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.use("/api/user" , require("./routes/user.route"))
 app.use("/api/product/", require("./routes/product.route"));
+app.use("/api/cart" , require("./routes/cart.route"))
 
 app.listen(5000, () => {
   console.log("connection done on 5000");
